@@ -1,0 +1,62 @@
+:root {
+  --bg: #fafaf9;
+  --fg: #18181b;
+  --muted: #71717a;
+  --card: #ffffff;
+  --border: #e4e4e7;
+  --a1: #6366f1;
+  --a2: #ec4899;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0b0f;
+    --fg: #f4f4f5;
+    --muted: #a1a1aa;
+    --card: #15151b;
+    --border: #27272a;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(60rem 30rem at 50% -10rem, color-mix(in srgb, var(--a1) 18%, transparent), transparent),
+    var(--bg);
+  color: var(--fg);
+  font: 16px/1.6 Inter, system-ui, sans-serif;
+}
+main { max-width: 760px; margin: 0 auto; padding: 4rem 1rem 2rem; }
+a { color: inherit; }
+
+.hero { text-align: center; margin-bottom: 4rem; }
+.avatar { border-radius: 50%; box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--a1); }
+h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -.03em; margin: 1.5rem 0 .5rem; }
+.grad { background: linear-gradient(90deg, var(--a1), var(--a2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tagline { color: var(--muted); font-size: 1.15rem; max-width: 34rem; margin: 0 auto 1.5rem; }
+
+.links { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+.links a {
+  text-decoration: none; font-weight: 500;
+  padding: .5rem 1.1rem; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--card); transition: border-color .2s, transform .2s;
+}
+.links a:hover { border-color: var(--a1); transform: translateY(-2px); }
+
+section { margin-bottom: 3rem; }
+h2 { font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.card {
+  display: block; text-decoration: none; padding: 1.25rem;
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  transition: border-color .2s, transform .2s;
+}
+.card:hover { border-color: var(--a2); transform: translateY(-3px); }
+.card h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+.card p { margin: 0 0 .75rem; color: var(--muted); font-size: .95rem; }
+.tag { font-size: .75rem; font-weight: 500; color: var(--a1); }
+
+a:focus-visible { outline: 2px solid var(--a1); outline-offset: 3px; }
+footer { text-align: center; color: var(--muted); font-size: .85rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
